@@ -1,4 +1,3 @@
-README.md
 CabinetMedical : JavaEE + SQL project.
 
 ![Screenshot](capture2.png)
