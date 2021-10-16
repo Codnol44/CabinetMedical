@@ -1,0 +1,17 @@
+body {
+	background-image:url(med.png);
+	color: brown;
+	margin-top: 100px;
+	margin-left: 300px;
+}
+
+.table {
+	background-color:aquamarine;
+	border : 2px solid black;
+}
+
+#docs {
+	background-color:yellow;
+	border : 2px solid black;
+	font-size: x-large;
+}

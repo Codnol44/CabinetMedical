@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Docs</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+</head>
+<body>
+	
+	<div class="container">
+		
+			<h2>Liste de nos médecins :</h2><br><br>
+			<ul id=docs>
+				<li>
+					<p><b>Yves Menlaretraite</b> : Ancien interne des Hôpitaux de Paris</p>
+				</li>
+				<li>
+					<p><b>Jacques Septeladouleur</b> : Ancien interne des Hôpitaux de Nantes</p>
+				</li>
+				<li>
+					<p><b>Jean Peuplux</b> : Ancien interne des Hôpitaux de Marseille</p>
+				</li>	
+			</ul>
+		
+			<div class="table table-striped">
+				<a th:href="@{/accueil}">Retour à l'accueil</a>
+			</div>
+	</div>
+
+</body>
+</html>

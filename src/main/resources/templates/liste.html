@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Liste</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+</head>
+<body>
+	
+	<div class="container">
+		
+			<h2>Liste des rdv patients :</h2><br><br>
+			<table class="table table-striped">
+				<tr>
+					<th>Prénom</th>
+					<th>Nom</th>
+					<th>Patient connu ?</th>
+					<th>Jour du rdv</th>
+					<th>Heure de rdv</th>
+					<th>Pathologie</th>
+					<th>Medecin traitant</th>
+					<th></th>
+					<th></th>
+				</tr>
+				
+				<tr th:each="rdv: ${liste}">
+					<td th:text="${rdv.prenom}"></td>
+					<td th:text="${rdv.nom}"></td>
+					<td th:text="${rdv.isConnu()}? 'Connu' : 'Inconnu'"></td>
+					<td th:text="${rdv.creneau}"></td>
+					<td th:text="${rdv.timing}"></td>
+					<td><span th:each="patho: ${rdv.patho}" th:text="${patho.libelle}"></span></td>
+					<td><span th:each="medecin: ${rdv.medecin}" th:text="${medecin.nom}"></span></td>
+					<td><a th:href="@{/del(noP=${rdv.noP})}">Supprimer ce rdv</a></td>
+					<td><a th:href="@{/up(noP=${rdv.noP})}">Modifier ce rdv</a></td>
+				</tr>
+			</table>
+		
+			<div class="table table-striped">
+				<a th:href="@{/accueil}">Retour à l'accueil</a>
+			</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Rdv</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+</head>
+<body>
+
+	<div class="container">
+		
+			<h2>Prise de rdv :</h2><br><br>
+			<form class="table table-striped" method="post" th:object="${rdv}" th:action="@{/rdv}">
+				<ul>
+					<li>
+						<label for="titre">Prénom du patient</label>
+						<input type="text" id="prenom" th:field="*{prenom}" required/>
+					</li><br>
+					<li>
+						<label for="titre">Nom du patient</label>
+						<input type="text" id="nom" th:field="*{nom}" required/>
+					</li><br>
+					<li>
+						<label>Connu du cabinet ?</label>
+            		   <input type="checkbox" id="connu" name="connu" value="true"/>
+					</li>
+					</li><br>
+					<li>
+						<label for="titre">Date rdv</label>
+						<input type="date" id="creneau" th:field="*{{creneau}}" required/>
+					</li><br>
+					<li>
+						<label for="titre">Heure rdv</label>
+						<input type="time" id="creneau" th:field="*{{timing}}" />
+					</li><br>
+					<li>
+        				<label>Pathologie</label>
+      					<select class="form-control" required th:field="*{patho}" >
+      					<option th:each="patho:${@rdvContextApplication.getPathos()}" 
+      		        	th:value="${patho.noB}" th:text="${patho.libelle}"></option>
+      					</select>
+					</li><br>
+
+					<li>
+					    <label>Medecin</label>
+      					<select class="form-control" required th:field="*{medecin}" >
+      					<option th:each="medecin:${@rdvContextApplication.getMedecins()}" 
+      					th:value="${medecin.noS}" th:text="${medecin.nom}"></option>
+      					</select> 
+					</li>
+				</ul>
+				<input type="submit" value="Valider">
+			</form>
+			
+			<div class="table table-striped">
+				<a th:href="@{/accueil}">Retour à l'accueil</a>
+			</div>
+	</div>
+		
+</body>
+</html>
