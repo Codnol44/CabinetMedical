@@ -1,5 +1,7 @@
 CabinetMedical : JavaEE + SQL project.
 
+Précision : connexion sur port 8080.
+
 ![Screenshot](capture2.png)
 
 Description :
